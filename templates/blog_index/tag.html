@@ -1,0 +1,33 @@
+{% extends 'blog_index/baze.html' %}
+
+
+{% block main %}
+
+
+<div class="marquee">
+  <ul class="marquee-content">
+    {% for tag in all_tags %}
+      <li><a href="/tag/{{ tag.pk }}">{{ tag.svg|safe }}</a></li>
+    {% endfor %}
+ </ul>
+</div>
+<div class="conteiner-baze">
+    <p class="tag_title">{{ title }}</p>
+</div>
+
+<div class="conteiner-baze">
+<div class="list_progect" id="list">
+{% for name in name_progect %}
+<div class="list_prog" style="background-image: url({{ name.img.url }})">
+    <a href="{{ name.get_absolute_url }}">
+
+        <div class="list_prog_info">
+        <p>{{ name.text }}</p>
+        </div>
+     </a>
+
+</div>
+    {% endfor %}
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'blog_index/baze.html' %}
+
+
+{% block main %}
+
+<div class="progect_detali conteiner-baze">
+    <p class="progect_name"> {{ object.title }} </p>
+    <div class="progect_center">
+        <div class="progect_img">
+            <img src="{{ object.img.url }}" alt="{{ object.text }}">
+
+        </div>
+        <div class="progect_text">
+            <p> {{ object.text }}</p>
+            {% if object.link_progect != '-' %}
+                <p><a href="{{ object.link_progect }}">Посмотреть проект</a></p>
+            {% else %}
+                <p></p>
+            {% endif %}
+
+            {% if object.link_github != '-' %}
+                <p><a href="{{ object.link_github }}">Код на GitHub</a></p>
+            {% else %}
+                <p></p>
+            {% endif %}
+
+            {% if object.link_figma != '' %}
+                <p><a href="{{ object.link_figma }}">Шаблон проекта на Figma</a></p>
+            {% else %}
+                <p></p>
+            {% endif %}
+
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}
